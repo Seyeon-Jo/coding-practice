@@ -1,3 +1,7 @@
+.section {
+  margin: 0 auto;
+}
+
 a {
   display: inline-block;
   padding: 1rem;
