@@ -1,13 +1,26 @@
-.section {
-  margin: 0 auto;
+/* ---------------- Google Font Import - Poppins ---------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  display: inline-block;
-  padding: 1rem;
-  text-decoration: none;
-  background: lightsalmon;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  margin-right: 1rem;
+:root {
+  /* -------- Colors -------- */
+  --primary-color: #0e4bf1;
+  --panel-color: #fff;
+  --text-color: #000;
+  --black-light-color: #707070;
+  --border-color: #e6e5e5;
+  --toggle-color: #ddd;
+  --box1-color: #4da3ff;
+  --box2-color: #ffe6ac;
+  --box3-color: #e7d1fc;
+  --title-icon-color: #fff;
+
+  /* -------- Transition -------- */
+  --tran-05: all 0.5s ease;
+  --tran-03: all 0.3s ease;
+  --tran-02: all 0.2s ease;
 }
