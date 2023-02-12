@@ -1,9 +1,11 @@
 /* ---------------- Google Font Import - Poppins ---------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -24,3 +26,68 @@
   --tran-03: all 0.3s ease;
   --tran-02: all 0.2s ease;
 }
+
+body {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+}
+
+/* ------------- Start left navigation bar ------------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 18rem;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--panel-color);
+}
+
+/* ------------- Start logo name & logo image ------------- */
+nav .logo-name {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo-image {
+  display: flex;
+  justify-content: center;
+  min-width: 3rem;
+}
+
+nav .logo-image img {
+  width: 2.5rem;
+  object-fit: cover;
+}
+
+nav .logo-name .logo_name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-left: 0.8rem;
+}
+/* ------------- End logo name & logo image ------------- */
+
+/* ------------- Start left navigation bar items ------------- */
+nav .menu-items {
+  background-color: red;
+  margin-top: 2.5rem;
+  height: calc(100% - 5.6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-items li {
+  list-style: none;
+}
+
+.menu-items li a {
+  display: flex;
+  align-items: center;
+  height: 3.7rem;
+  text-decoration: none;
+}
+/* ------------- Start left navigation bar items ------------- */
+
+/* ------------- End left navigation bar ------------- */
