@@ -27,10 +27,13 @@
   --tran-02: all 0.2s ease;
 }
 
+/* ------------- Start Apply to entire ------------- */
 body {
   min-height: 100vh;
   background-color: var(--primary-color);
 }
+
+/* ------------- End Apply to entire ------------- */
 
 /* ------------- Start left navigation bar ------------- */
 nav {
@@ -70,7 +73,6 @@ nav .logo-name .logo_name {
 
 /* ------------- Start left navigation bar items ------------- */
 nav .menu-items {
-  background-color: red;
   margin-top: 2.5rem;
   height: calc(100% - 5.6rem);
   display: flex;
@@ -85,9 +87,78 @@ nav .menu-items {
 .menu-items li a {
   display: flex;
   align-items: center;
-  height: 3.7rem;
+  height: 3.5rem;
   text-decoration: none;
+  position: relative;
 }
-/* ------------- Start left navigation bar items ------------- */
+
+.nav-links li a:hover:before {
+  content: "";
+  position: absolute;
+  height: 23px;
+  width: 3px;
+  background-color: var(--primary-color);
+}
+
+.menu-items li a i {
+  font-size: 1.5rem;
+  min-width: 2.8rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-light-color);
+}
+
+.menu-items li a .link-name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--black-light-color);
+}
+
+.nav-links li a:hover i,
+.nav-links li a:hover .link-name {
+  color: var(--primary-color);
+}
+/* ------------- End left navigation bar items ------------- */
+
+/* ------------- Start left navigation bar dark-mode toggle ------------- */
+.menu-items .mode {
+  display: flex;
+  align-items: center;
+}
+
+.menu-items .mode-toggle {
+  position: absolute;
+  right: 14px;
+  height: 3rem;
+  min-width: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mode-toggle .switch {
+  position: relative;
+  display: inline-block;
+  height: 1.3rem;
+  width: 2.5rem;
+  border-radius: 25px;
+  background-color: var(--toggle-color);
+}
+
+.switch:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  background-color: var(--panel-color);
+  border-radius: 50%;
+}
+/* ------------- End left navigation bar dark-mode toggle ------------- */
 
 /* ------------- End left navigation bar ------------- */
