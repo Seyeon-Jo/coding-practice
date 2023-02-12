@@ -10,13 +10,13 @@
 
 :root {
   /* -------- Colors -------- */
-  --primary-color: #0e4bf1;
+  --primary-color: #af7ab3;
   --panel-color: #fff;
   --text-color: #000;
   --black-light-color: #707070;
   --border-color: #e6e5e5;
   --toggle-color: #ddd;
-  --box1-color: #4da3ff;
+  --box1-color: #b58db8;
   --box2-color: #ffe6ac;
   --box3-color: #e7d1fc;
   --title-icon-color: #fff;
@@ -41,7 +41,7 @@ nav {
   top: 0;
   left: 0;
   height: 100%;
-  width: 18rem;
+  width: 17rem;
   padding: 0.6rem 0.8rem;
   background-color: var(--panel-color);
 }
@@ -50,6 +50,7 @@ nav {
 nav .logo-name {
   display: flex;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 nav .logo-image {
