@@ -33,9 +33,24 @@ body {
   background-color: var(--primary-color);
 }
 
+/* ------------- Start toggle dark-mode theme ------------- */
+body.dark {
+  --primary-color: #3a3b3c;
+  --panel-color: #242526;
+  --text-color: #ccc;
+  --black-light-color: #ccc;
+  --border-color: #4d4c4c;
+  --toggle-color: #fff;
+  --box1-color: #3a3b3c;
+  --box2-color: #3a3b3c;
+  --box3-color: #3a3b3c;
+  --title-icon-color: #ccc;
+}
+/* ------------- End toggle dark-mode theme ------------- */
+
 /* ------------- End Apply to entire ------------- */
 
-/* ------------- Start left navigation bar ------------- */
+/* ------------- Start left sidebar ------------- */
 nav {
   position: fixed;
   top: 0;
@@ -44,13 +59,22 @@ nav {
   width: 17rem;
   padding: 0.6rem 0.8rem;
   background-color: var(--panel-color);
+  border-right: 2px solid var(--border-color);
+  transition: var(--tran-05);
 }
+
+/* ------------- Start toggle left sidebar ------------- */
+nav.close {
+  width: 4.5rem;
+}
+/* ------------- End toggle left sidebar ------------- */
 
 /* ------------- Start logo name & logo image ------------- */
 nav .logo-name {
   display: flex;
   align-items: center;
   margin-top: 0.5rem;
+  white-space: nowrap;
 }
 
 nav .logo-image {
@@ -62,6 +86,8 @@ nav .logo-image {
 nav .logo-image img {
   width: 2.5rem;
   object-fit: cover;
+  background-color: #fff;
+  border-radius: 50%;
 }
 
 nav .logo-name .logo_name {
@@ -69,10 +95,17 @@ nav .logo-name .logo_name {
   font-weight: 600;
   color: var(--text-color);
   margin-left: 0.8rem;
+  transition: var(--tran-05);
+}
+
+nav.close .logo_name {
+  opacity: 0;
+  pointer-events: none;
+  /* sidebar 버튼 클릭하면 로고 이름이 사라지게 함 */
 }
 /* ------------- End logo name & logo image ------------- */
 
-/* ------------- Start left navigation bar items ------------- */
+/* ------------- Start left sidebar items ------------- */
 nav .menu-items {
   margin-top: 2.5rem;
   height: calc(100% - 5.6rem);
@@ -115,18 +148,32 @@ nav .menu-items {
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--black-light-color);
+  transition: var(--tran-05);
+  white-space: nowrap;
+}
+
+nav.close li a .link-name {
+  opacity: 0;
+  pointer-events: none;
+  /* sidebar 버튼 클릭하면 링크 이름들이 사라지게 함 */
 }
 
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name {
   color: var(--primary-color);
 }
-/* ------------- End left navigation bar items ------------- */
+/* ------------- End left sidebar items ------------- */
 
-/* ------------- Start left navigation bar dark-mode toggle ------------- */
+/* ------------- Start left sidebar dark-mode toggle ------------- */
+.menu-items .dark-mode {
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-color);
+}
+
 .menu-items .mode {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .menu-items .mode-toggle {
@@ -143,8 +190,8 @@ nav .menu-items {
 .mode-toggle .switch {
   position: relative;
   display: inline-block;
-  height: 1.3rem;
-  width: 2.5rem;
+  height: 22px;
+  width: 39px;
   border-radius: 25px;
   background-color: var(--toggle-color);
 }
@@ -159,7 +206,96 @@ nav .menu-items {
   width: 15px;
   background-color: var(--panel-color);
   border-radius: 50%;
+  transition: var(--tran-03);
 }
-/* ------------- End left navigation bar dark-mode toggle ------------- */
 
-/* ------------- End left navigation bar ------------- */
+body.dark .switch:before {
+  left: 20px;
+  /* transition & left -> Dark-mode 스위치 왼쪽으로부터 20px 이동 (버튼이 켜지는 것처럼 보임) */
+}
+/* ------------- End left sidebar dark-mode toggle ------------- */
+
+/* ------------- End left sidebar ------------- */
+
+/* ------------- Start section dashboard ------------- */
+
+.dashboard {
+  position: relative;
+  left: 17rem;
+  background-color: var(--panel-color);
+  height: 100vh;
+  width: calc(100% - 17rem);
+  padding: 0.6rem 0.8rem;
+  transition: var(--tran-05);
+}
+
+nav.close ~ .dashboard {
+  left: 4.5rem;
+  width: calc(100% - 4.5rem);
+}
+
+/* ------------- Start section dashboard top ------------- */
+.dashboard .top {
+  position: fixed;
+  top: 0;
+  left: 17rem;
+  width: calc(100% - 17rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--panel-color);
+  transition: var(--tran-05);
+}
+
+nav.close ~ .dashboard .top {
+  left: 4.5rem;
+  width: calc(100% - 4.5rem);
+  /* sidebar 버튼을 클릭해서 sidebar 링크들을 닫으면, 버튼이 사이드바 닫힌 곳으로 따라감 */
+}
+
+/* ------------- Start section dashboard top-toggle btn ------------- */
+.dashboard .top .sidebar-toggle {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+/* ------------- End section dashboard top-toggle btn ------------- */
+
+/* ------------- Start section dashboard top-search box ------------- */
+.dashboard .top .search-box {
+  position: relative;
+  height: 2.8rem;
+  max-width: 37.5rem;
+  width: 100%;
+  margin: 0 1.8rem;
+}
+
+.top .search-box i {
+  position: absolute;
+  left: 15px;
+  font-size: 1.3rem;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--black-light-color);
+}
+
+.top .search-box input {
+  position: absolute;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--panel-color);
+  padding: 0 1.5rem 0 3rem;
+  height: 100%;
+  width: 100%;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 400;
+  outline: none;
+}
+/* ------------- End section dashboard top-search box ------------- */
+
+/* ------------- End section dashboard top ------------- */
+
+/* ------------- End section dashboard ------------- */
