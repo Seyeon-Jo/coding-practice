@@ -11,6 +11,7 @@
 :root {
   /* -------- Colors -------- */
   --primary-color: #af7ab3;
+  --primary-dark-color: #5f2a63;
   --panel-color: #fff;
   --text-color: #000;
   --black-light-color: #707070;
@@ -33,6 +34,14 @@ body {
   background-color: var(--primary-color);
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+li {
+  list-style: none;
+}
 /* ------------- Start toggle dark-mode theme ------------- */
 body.dark {
   --primary-color: #3a3b3c;
@@ -45,6 +54,15 @@ body.dark {
   --box2-color: #3a3b3c;
   --box3-color: #3a3b3c;
   --title-icon-color: #ccc;
+}
+
+body.dark li a:hover:before {
+  background-color: var(--text-color);
+}
+
+body.dark .nav-links li a:hover i,
+body.dark .nav-links li a:hover .link-name {
+  color: var(--text-color);
 }
 /* ------------- End toggle dark-mode theme ------------- */
 
@@ -114,15 +132,10 @@ nav .menu-items {
   justify-content: space-between;
 }
 
-.menu-items li {
-  list-style: none;
-}
-
 .menu-items li a {
   display: flex;
   align-items: center;
   height: 3.5rem;
-  text-decoration: none;
   position: relative;
 }
 
@@ -246,6 +259,7 @@ nav.close ~ .dashboard {
   padding: 0.6rem 0.8rem;
   background-color: var(--panel-color);
   transition: var(--tran-05);
+  z-index: 10;
 }
 
 nav.close ~ .dashboard .top {
@@ -254,15 +268,15 @@ nav.close ~ .dashboard .top {
   /* sidebar 버튼을 클릭해서 sidebar 링크들을 닫으면, 버튼이 사이드바 닫힌 곳으로 따라감 */
 }
 
-/* ------------- Start section dashboard top-toggle btn ------------- */
+/* ------------- Start section dashboard top - toggle btn ------------- */
 .dashboard .top .sidebar-toggle {
   font-size: 1.6rem;
   color: var(--text-color);
   cursor: pointer;
 }
-/* ------------- End section dashboard top-toggle btn ------------- */
+/* ------------- End section dashboard top - toggle btn ------------- */
 
-/* ------------- Start section dashboard top-search box ------------- */
+/* ------------- Start section dashboard top - search box ------------- */
 .dashboard .top .search-box {
   position: relative;
   height: 2.8rem;
@@ -294,8 +308,200 @@ nav.close ~ .dashboard .top {
   font-weight: 400;
   outline: none;
 }
-/* ------------- End section dashboard top-search box ------------- */
+/* ------------- End section dashboard top - search box ------------- */
+
+/* ------------- Start section dashboard top - profile img ------------- */
+.top img {
+  width: 2.5rem;
+  border-radius: 50%;
+}
+/* ------------- End section dashboard top - profile img ------------- */
 
 /* ------------- End section dashboard top ------------- */
 
+/* ------------- Start section dashboard dash-content ------------- */
+.dashboard .dash-content {
+  padding-top: 2.5rem;
+}
+
+.dash-content .title {
+  display: flex;
+  align-items: center;
+  margin: 4rem 0 1.8rem 0;
+}
+
+.dash-content .title i {
+  position: relative;
+  height: 2.1rem;
+  width: 2.1rem;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  color: var(--title-icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.dash-content .title .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-left: 0.6rem;
+}
+
+.dash-content .boxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dash-content .boxes .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0.8rem;
+  width: calc(100% / 3 - 1rem);
+  height: 6.2rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--box1-color);
+  transition: var(--tran-05);
+}
+
+.boxes.box .text {
+  white-space: nowrap;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+/* ------------- End section dashboard dash-content ------------- */
+
 /* ------------- End section dashboard ------------- */
+
+/* ------------- Start media query max-width: 1000px ------------- */
+@media (max-width: 1000px) {
+  nav {
+    width: 4.5rem;
+  }
+
+  nav.close {
+    width: 15.5rem;
+  }
+
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close .logo_name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close li a .link-name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav ~ .dashboard {
+    left: 4.5rem;
+    width: calc(100% - 4.5rem);
+  }
+
+  nav.close ~ .dashboard {
+    left: 15.5rem;
+    width: calc(100% - 15.5rem);
+  }
+
+  nav ~ .dashboard .top {
+    left: 4.5rem;
+    width: calc(100% - 4.5rem);
+  }
+
+  nav.close ~ .dashboard .top {
+    left: 15.5rem;
+    width: calc(100% - 15.5rem);
+  }
+}
+/* ------------- End media query max-width: 1000px ------------- */
+
+/* ------------- Start media query max-width: 780px ------------- */
+@media (max-width: 780px) {
+  .dash-content .boxes .box {
+    width: calc(100% / 2 - 0.9rem);
+    margin-top: 0.9rem;
+  }
+}
+/* ------------- End media query max-width: 780px ------------- */
+
+/* ------------- Start media query max-width: 560px ------------- */
+@media (max-width: 560px) {
+  .dash-content .boxes .box {
+    width: 100%;
+  }
+}
+/* ------------- End media query max-width: 560px ------------- */
+
+/* ------------- Start media query max-width: 500px ------------- */
+@media (max-width: 500px) {
+  nav {
+    width: 4.5rem;
+  }
+
+  nav.close {
+    width: 4.5rem;
+  }
+
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav ~ .dashboard {
+    left: 4.5rem;
+    width: calc(100% - 4.5rem);
+  }
+
+  nav.close ~ .dashboard {
+    left: 4.5rem;
+    width: calc(100% - 4.5rem);
+  }
+
+  nav ~ .dashboard .top {
+    left: 4.5rem;
+    width: calc(100% - 4.5rem);
+  }
+
+  nav.close ~ .dashboard .top {
+    left: 4.5rem;
+    width: calc(100% - 4.5rem);
+  }
+
+  .dashboard .top .sidebar-toggle {
+    display: none;
+  }
+}
+/* ------------- End media query max-width: 500px ------------- */
